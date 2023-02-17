@@ -7,6 +7,8 @@ canvas.height = innerHeight
 
 const gravity = 0.5
 
+/* PLAYER POSITION START */
+
 class Player {
   constructor() {
     this.position = {
@@ -20,6 +22,10 @@ class Player {
     this.width = 50
     this.height = 50
   }
+/* PLAYER POSITION END*/
+
+
+/* CHARACTER START */
 
   draw() {
     c.fillStyle = "red"
@@ -27,7 +33,9 @@ class Player {
       position.y, this.width, this.height
       )
   }
+/* CHARACTER END */
 
+/* GRAVITY START*/
   update() {
     this.draw()
     this.position.x += this.velocity.x
@@ -40,6 +48,9 @@ class Player {
     else this.velocity.y = 0
   }
 }
+/* GRAVITY END*/
+
+/*PLAYER MOVEMENT START*/
 
 const player = new Player()
 const keys = {
@@ -58,9 +69,13 @@ function animate() {
   player.update()
   if (keys.right.pressed) {
     player.velocity.x = 5
+
   } else if (keys.left.pressed) {
     player.velocity.x = -5
-  } else player.velocity.x = 0
+
+  } else player.velocity.x = 0 
+
+  
 }
 
 animate()
@@ -113,3 +128,5 @@ addEventListener("keyup", ( {keyCode} ) => {
   
 
 })
+
+/*PLAYER MOVEMENT END*/
